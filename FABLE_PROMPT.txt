@@ -1,0 +1,53 @@
+Use docs/06_Mirall.md as the implementation source of truth.
+
+IMPORTANT:
+The approved cinematic asset is already inside the project at:
+  /public/media/mirall-hero-approved.mp4
+
+Do NOT regenerate or reinterpret the video.
+Do NOT require the video to be uploaded into chat.
+Build against the file path above.
+
+Also available:
+  /public/media/mirall-poster-opening.jpg
+  /public/media/mirall-milestone-mid.jpg
+  /public/media/mirall-poster-final.jpg
+
+Approved video duration: 15.10 seconds.
+
+Build the Mirall single-page cinematic website around these exact local assets.
+
+Requirements:
+- Persian-first RTL
+- one-page premium luxury beauty site
+- desktop: scroll-scrub the local MP4
+- mobile: autoplay loop or poster/image fallback; never paused-video scrub on iPhone Safari
+- poster paints immediately
+- background must visually match video edges
+- sparse overlays; do not cover the hair
+- CTA: رزرو وقت
+- secondary CTA: تماس با میرال
+- no generic white salon template
+- no Three.js
+- no fake testimonials/prices/awards/results
+- use overflow-x: clip
+- support prefers-reduced-motion
+- CTA must work even if media fails
+- optimize for constrained Iranian/VPN connections
+
+Implementation:
+- Next.js + TypeScript
+- GSAP + ScrollTrigger for pinned hero and overlays
+- requestAnimationFrame smoothing for desktop currentTime mapping
+- select desktop/mobile runtime in JavaScript
+- lazy-load video near viewport with IntersectionObserver
+- pause offscreen work
+- use final poster for reduced-motion/media-error states
+
+Before coding:
+1. Read docs/06_Mirall.md.
+2. Use the exact local media paths above.
+3. Adapt scroll milestones to the actual 15.10s video.
+4. Then build the complete page.
+
+Do not ask for the MP4 again. It is already in /public/media/.
